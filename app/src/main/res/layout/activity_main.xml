@@ -24,7 +24,7 @@
             android:gravity="top|center_horizontal|center"
             android:orientation="horizontal"
             android:weightSum="1"
-            app:layout_constraintHorizontal_bias="0.555"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -33,6 +33,7 @@
                 android:id="@+id/text_minutes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="fill"
                 android:layout_marginEnd="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
@@ -53,6 +54,7 @@
                 android:id="@+id/text_colon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="fill"
                 android:layout_marginTop="8dp"
                 android:text=":"
                 android:textAlignment="center"
@@ -66,11 +68,13 @@
                 android:id="@+id/text_seconds"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="fill"
                 android:layout_marginEnd="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
+                android:layout_weight="0.08"
                 android:text="00"
                 android:textAlignment="center"
                 android:textColor="@color/colorPrimary"
@@ -79,8 +83,7 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintLeft_toRightOf="@+id/text_colon"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_weight="0.08" />
+                app:layout_constraintTop_toTopOf="parent" />
         </LinearLayout>
 
         <TableLayout
@@ -115,6 +118,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:onClick="buttonHandler"
                     android:text="- 10 Seconds" />
 
                 <Button
@@ -122,6 +126,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:onClick="buttonHandler"
                     android:text="+ 10 seconds" />
 
             </TableRow>
@@ -137,6 +142,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:onClick="buttonHandler"
                     android:text="- 1 minute" />
 
                 <Button
@@ -144,6 +150,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:onClick="buttonHandler"
                     android:text="+ 1 minute" />
 
             </TableRow>
@@ -159,13 +166,15 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:onClick="buttonHandler"
                     android:text="- 5 minutes" />
 
                 <Button
-                    android:id="@+id/button_plus5m"
+                    android:id="@+id/button_add5m"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:onClick="buttonHandler"
                     android:text="+ 5 minutes" />
 
             </TableRow>
@@ -186,6 +195,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight=".5"
+                        android:gravity="fill"
                         android:text="Reset to Last" />
 
                     <Button
@@ -193,7 +203,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight=".5"
-                        android:text="Reset All" />
+                        android:gravity="fill"
+                        android:text="Reset All"
+                        android:textAlignment="center" />
 
                 </LinearLayout>
 
@@ -202,6 +214,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:layout_weight=".5"
+                    android:gravity="fill"
                     android:text="Start"
                     android:textAlignment="center"
                     android:textSize="36sp" />
