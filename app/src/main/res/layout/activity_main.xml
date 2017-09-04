@@ -194,20 +194,12 @@
                     android:orientation="vertical">
 
                     <Button
-                        android:id="@+id/button_reset_last"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight=".5"
-                        android:gravity="fill"
-                        android:text="Reset to Last" />
-
-                    <Button
                         android:id="@+id/button_reset_0"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight=".5"
                         android:gravity="fill"
-                        android:text="Reset All"
+                        android:text="Reset"
                         android:textAlignment="center" />
 
                 </LinearLayout>

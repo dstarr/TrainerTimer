@@ -1,7 +1,9 @@
 package com.elegantcode.trainertimer;
 
+import android.widget.Button;
 import android.widget.TextView;
 
+import com.elegantcode.trainertimer.ViewModels.ActionButtonViewModel;
 import com.elegantcode.trainertimer.ViewModels.TimeViewModel;
 
 /**
@@ -60,7 +62,6 @@ public class MainPresenter {
 
         tvMinutes.setText(viewModel.getMinutes());
         tvSeconds.setText(viewModel.getSeconds());
-
-
     }
+
 }
