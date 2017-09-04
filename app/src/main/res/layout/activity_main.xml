@@ -125,9 +125,10 @@
                 <Button
                     android:id="@+id/button_add10s"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:freezesText="false"
+                    android:gravity="center"
                     android:onClick="numberButtonHandler"
                     android:text="+ 10 seconds"
                     android:textIsSelectable="false" />
@@ -151,8 +152,9 @@
                 <Button
                     android:id="@+id/button_add1m"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:gravity="center"
                     android:onClick="numberButtonHandler"
                     android:text="+ 1 minute" />
 
@@ -175,8 +177,9 @@
                 <Button
                     android:id="@+id/button_add5m"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:gravity="center"
                     android:onClick="numberButtonHandler"
                     android:text="+ 5 minutes" />
 
@@ -199,6 +202,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight=".5"
                         android:gravity="fill"
+                        android:onClick="resestButtonClicked"
                         android:text="Reset"
                         android:textAlignment="center" />
 

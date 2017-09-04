@@ -7,28 +7,33 @@ package com.elegantcode.trainertimer.ViewModels;
 public class ActionButtonViewModel {
 
     private boolean isPaused = false;
-    private boolean isStartEnabled = false;
-    private boolean isResetEnabled = false;
 
-    public boolean isStartEnabled() {
-        return isStartEnabled;
+    private final String minutes;
+    private final String seconds;
+
+    public ActionButtonViewModel() {
+        this("00", "00");
     }
 
-    public void setStartEnabled(boolean enabled) {
-        isStartEnabled = enabled;
+    public ActionButtonViewModel(String min, String sec) {
+        minutes = min;
+        seconds = sec;
+        isPaused = false;
+    }
+
+    public boolean isStartEnabled() {
+
+        return (minutes != "00" || seconds != "00");
     }
 
     public boolean isResetEnabled() {
-        return isResetEnabled;
-    }
 
-    public void setResetEnabled(boolean enabled) {
-        isResetEnabled = enabled;
+        return ((minutes != "00" || seconds != "00"));
     }
 
     public String getStartButtonText() {
 
-        if(isPaused)
+        if (isPaused)
             return "Paused";
 
         return "Start";
@@ -41,5 +46,6 @@ public class ActionButtonViewModel {
     public void setPaused(boolean paused) {
         isPaused = paused;
     }
+
 
 }

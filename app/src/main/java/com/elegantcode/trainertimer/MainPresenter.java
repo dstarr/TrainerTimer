@@ -1,5 +1,7 @@
 package com.elegantcode.trainertimer;
 
+import android.app.Activity;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -12,25 +14,18 @@ import com.elegantcode.trainertimer.ViewModels.TimeViewModel;
 
 public class MainPresenter {
 
-    TextView tvMinutes;
-    TextView tvSeconds;
+    private MainModel model = new MainModel();
+    private Activity activity;
 
-    MainModel model = new MainModel();
+    public MainPresenter(Activity act) {
 
-    public MainPresenter (TextView minutes, TextView seconds) {
-
-        tvMinutes = minutes;
-        tvSeconds = seconds;
-
-        TimeViewModel viewModel = model.getTimeRemaining();
-
-        tvMinutes.setText(viewModel.getMinutes());
-        tvSeconds.setText(viewModel.getSeconds());
+        activity = act;
+        resetTime();
     }
 
-    public void handleNumberClick(int btnClicked) {
+    public void numberClicked(View view) {
 
-        switch(btnClicked) {
+        switch (view.getId()) {
 
             case R.id.button_add10s:
                 model.addSeconds(10);
@@ -55,13 +50,57 @@ public class MainPresenter {
             case R.id.button_minus5m:
                 model.addMinutes(-5);
                 break;
-
         }
+
+        updateTimeRemaining();
+        updateActionButtonState();
+
+    }
+
+    public void resetTime() {
+
+        TextView seconds = (TextView) activity.findViewById(R.id.text_seconds);
+        TextView minutes = (TextView) activity.findViewById(R.id.text_minutes);
+
+        TimeViewModel timeViewModel = new TimeViewModel();
+
+        seconds.setText(timeViewModel.getSeconds());
+        minutes.setText(timeViewModel.getMinutes());
+
+        ActionButtonViewModel actionButtonViewModel = new ActionButtonViewModel();
+
+        Button startButton = (Button) activity.findViewById(R.id.button_start);
+        startButton.setEnabled(actionButtonViewModel.isStartEnabled());
+
+        Button resetButton = (Button) activity.findViewById(R.id.button_reset_0);
+        resetButton.setEnabled(actionButtonViewModel.isResetEnabled());
+
+    }
+
+    private void updateTimeRemaining() {
 
         TimeViewModel viewModel = model.getTimeRemaining();
 
-        tvMinutes.setText(viewModel.getMinutes());
-        tvSeconds.setText(viewModel.getSeconds());
+        TextView seconds = (TextView) activity.findViewById(R.id.text_seconds);
+        TextView minutes = (TextView) activity.findViewById(R.id.text_minutes);
+
+        seconds.setText(viewModel.getSeconds());
+        minutes.setText(viewModel.getMinutes());
+
+        updateActionButtonState();
     }
 
+    private void updateActionButtonState() {
+
+        TimeViewModel timeViewModel = model.getTimeRemaining();
+        ActionButtonViewModel actionButtonViewModel = new ActionButtonViewModel(timeViewModel.getMinutes(), timeViewModel.getSeconds());
+
+        Button startButton = (Button) activity.findViewById(R.id.button_start);
+        startButton.setEnabled(actionButtonViewModel.isStartEnabled());
+        startButton.setText(actionButtonViewModel.getStartButtonText());
+
+        Button resetButton = (Button) activity.findViewById(R.id.button_reset_0);
+        resetButton.setEnabled(actionButtonViewModel.isResetEnabled());
+
+    }
 }

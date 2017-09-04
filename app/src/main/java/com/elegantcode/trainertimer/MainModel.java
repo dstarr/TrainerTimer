@@ -1,5 +1,6 @@
 package com.elegantcode.trainertimer;
 
+import com.elegantcode.trainertimer.ViewModels.ActionButtonViewModel;
 import com.elegantcode.trainertimer.ViewModels.TimeViewModel;
 
 /**
@@ -9,7 +10,6 @@ import com.elegantcode.trainertimer.ViewModels.TimeViewModel;
 public class MainModel {
 
     private int seconds = 0;
-
 
     public void addMinutes(int min) {
         seconds += min * 60;
@@ -22,6 +22,11 @@ public class MainModel {
 
     public TimeViewModel getTimeRemaining() {
         return new TimeViewModel(getMinutes(), getSeconds());
+    }
+
+    public TimeViewModel resetTime() {
+        seconds = 0;
+        return new TimeViewModel();
     }
 
     private String getMinutes() {
