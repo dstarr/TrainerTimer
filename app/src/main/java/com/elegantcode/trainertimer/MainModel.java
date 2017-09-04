@@ -24,6 +24,12 @@ public class MainModel {
 
         seconds += (min * 60);
 
+        if (seconds > 3600) {
+            seconds = 3600;
+            return;
+        }
+
+
         if(seconds < 0) {
             min = 0;
             seconds = 0;
@@ -39,6 +45,11 @@ public class MainModel {
     }
 
     public void addSeconds(int sec) {
+
+        if (seconds + sec > 3600) {
+            seconds = 3600;
+            return;
+        }
 
         if((seconds + sec) < 0) {
             seconds = 0;
