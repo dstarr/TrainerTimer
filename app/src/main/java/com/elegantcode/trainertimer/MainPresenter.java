@@ -53,7 +53,7 @@ public class MainPresenter {
         }
 
         updateTimeRemaining();
-        updateActionButtonState();
+//        updateActionButtonState();
 
     }
 
@@ -62,45 +62,34 @@ public class MainPresenter {
         TextView seconds = (TextView) activity.findViewById(R.id.text_seconds);
         TextView minutes = (TextView) activity.findViewById(R.id.text_minutes);
 
-        TimeViewModel timeViewModel = new TimeViewModel();
-
-        seconds.setText(timeViewModel.getSeconds());
-        minutes.setText(timeViewModel.getMinutes());
-
-        ActionButtonViewModel actionButtonViewModel = new ActionButtonViewModel();
-
-        Button startButton = (Button) activity.findViewById(R.id.button_start);
-        startButton.setEnabled(actionButtonViewModel.isStartEnabled());
-
-        Button resetButton = (Button) activity.findViewById(R.id.button_reset_0);
-        resetButton.setEnabled(actionButtonViewModel.isResetEnabled());
-
+        model.resetTime();
+        updateTimeRemaining();
     }
 
     private void updateTimeRemaining() {
 
-        TimeViewModel viewModel = model.getTimeRemaining();
-
         TextView seconds = (TextView) activity.findViewById(R.id.text_seconds);
         TextView minutes = (TextView) activity.findViewById(R.id.text_minutes);
 
-        seconds.setText(viewModel.getSeconds());
-        minutes.setText(viewModel.getMinutes());
-
-        updateActionButtonState();
-    }
-
-    private void updateActionButtonState() {
-
         TimeViewModel timeViewModel = model.getTimeRemaining();
-        ActionButtonViewModel actionButtonViewModel = new ActionButtonViewModel(timeViewModel.getMinutes(), timeViewModel.getSeconds());
 
-        Button startButton = (Button) activity.findViewById(R.id.button_start);
-        startButton.setEnabled(actionButtonViewModel.isStartEnabled());
-        startButton.setText(actionButtonViewModel.getStartButtonText());
-
-        Button resetButton = (Button) activity.findViewById(R.id.button_reset_0);
-        resetButton.setEnabled(actionButtonViewModel.isResetEnabled());
-
+        seconds.setText(timeViewModel.getSeconds());
+        minutes.setText(timeViewModel.getMinutes());
     }
+
+//    private void updateActionButtonState() {
+//
+//        TimeViewModel timeViewModel = model.getTimeRemaining();
+//
+//        int totalSeconds = (timeViewModel.getMinutes() * 60) + timeViewModel.getSeconds();
+//        ActionButtonViewModel actionButtonViewModel = new ActionButtonViewModel(totalSeconds);
+//
+//        Button startButton = (Button) activity.findViewById(R.id.button_start);
+//        startButton.setEnabled(actionButtonViewModel.isStartEnabled());
+//        startButton.setText(actionButtonViewModel.getStartButtonText());
+//
+//        Button resetButton = (Button) activity.findViewById(R.id.button_reset_0);
+//        resetButton.setEnabled(actionButtonViewModel.isResetEnabled());
+//
+//    }
 }

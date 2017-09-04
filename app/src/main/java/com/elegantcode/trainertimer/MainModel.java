@@ -9,47 +9,59 @@ import com.elegantcode.trainertimer.ViewModels.TimeViewModel;
 
 public class MainModel {
 
-    private int seconds = 0;
+    private int seconds;
+
+    TimeViewModel timeViewModel;
+    ActionButtonViewModel actionButtonViewModel;
+
+    public MainModel() {
+        seconds = 0;
+        timeViewModel = new TimeViewModel();
+        actionButtonViewModel = new ActionButtonViewModel();
+    }
 
     public void addMinutes(int min) {
-        seconds += min * 60;
+
+        seconds += (min * 60);
+
+        if(seconds < 0) {
+            min = 0;
+            seconds = 0;
+        } else if ((seconds/60) < 0) {
+            min = 0;
+        }
+
+        String strMinutes = formatNumber(seconds / 60);
+        String strSeconds = formatNumber(seconds % 60);
+
+        timeViewModel.setMinutes(strMinutes);
+        timeViewModel.setSeconds(strSeconds);
     }
 
     public void addSeconds(int sec) {
 
+        if((seconds + sec) < 0) {
+            seconds = 0;
+
+            String strSeconds = formatNumber(this.seconds);
+            timeViewModel.setSeconds(strSeconds);
+
+            return;
+        }
+
         seconds += sec;
+
+        timeViewModel.setSeconds(formatNumber(seconds % 60));
+        timeViewModel.setMinutes(formatNumber(seconds/60));
     }
 
     public TimeViewModel getTimeRemaining() {
-        return new TimeViewModel(getMinutes(), getSeconds());
+        return timeViewModel;
     }
 
     public TimeViewModel resetTime() {
         seconds = 0;
         return new TimeViewModel();
-    }
-
-    private String getMinutes() {
-
-        if (seconds < 1) {
-            return formatNumber(0);
-        }
-
-        int minutes = seconds / 60;
-
-        return formatNumber(minutes);
-
-    }
-
-    private String getSeconds() {
-
-        if (seconds < 1) {
-            return formatNumber(0);
-        }
-
-        int secondsRemaining = seconds % 60;
-
-        return formatNumber(secondsRemaining);
     }
 
     private String formatNumber(int number) {

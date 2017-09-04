@@ -8,27 +8,14 @@ public class ActionButtonViewModel {
 
     private boolean isPaused = false;
 
-    private final String minutes;
-    private final String seconds;
+    public boolean isStartEnabled(int seconds) {
 
-    public ActionButtonViewModel() {
-        this("00", "00");
+        return (seconds > 0);
     }
 
-    public ActionButtonViewModel(String min, String sec) {
-        minutes = min;
-        seconds = sec;
-        isPaused = false;
-    }
+    public boolean isResetEnabled(int seconds) {
 
-    public boolean isStartEnabled() {
-
-        return (minutes != "00" || seconds != "00");
-    }
-
-    public boolean isResetEnabled() {
-
-        return ((minutes != "00" || seconds != "00"));
+        return (seconds > 0 && isPaused);
     }
 
     public String getStartButtonText() {
