@@ -46,12 +46,12 @@ public class MainActivity extends AppCompatActivity {
         TextView tvMinutes = (TextView) findViewById(R.id.text_minutes);
         mainPresenter = new MainPresenter(tvMinutes, tvSeconds);
 
-        initButtonState();
+        initActionButtonState();
 
     }
 
 
-    public void buttonHandler(View view) {
+    public void numberButtonHandler(View view) {
 
         switch(view.getId()) {
 
@@ -63,13 +63,14 @@ public class MainActivity extends AppCompatActivity {
             case R.id.button_minus5m:
 
                 mainPresenter.handleNumberClick(view.getId());
+                break;
 
-                return;
+
         }
 
     }
 
-    private void initButtonState() {
+    private void initActionButtonState() {
 
         Button startButton = (Button) findViewById(R.id.button_start);
         startButton.setEnabled(false);

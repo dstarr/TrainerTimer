@@ -110,7 +110,6 @@
                 android:hapticFeedbackEnabled="false"
                 android:isScrollContainer="false"
                 android:keepScreenOn="false"
-                android:keyboardNavigationCluster="false"
                 android:orientation="horizontal">
 
                 <Button
@@ -118,8 +117,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="buttonHandler"
-                    android:text="- 10 Seconds" />
+                    android:freezesText="false"
+                    android:onClick="numberButtonHandler"
+                    android:text="- 10 Seconds"
+                    android:textIsSelectable="false" />
 
                 <Button
                     android:id="@+id/button_add10s"
@@ -127,7 +128,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:freezesText="false"
-                    android:onClick="buttonHandler"
+                    android:onClick="numberButtonHandler"
                     android:text="+ 10 seconds"
                     android:textIsSelectable="false" />
 
@@ -144,7 +145,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="buttonHandler"
+                    android:onClick="numberButtonHandler"
                     android:text="- 1 minute" />
 
                 <Button
@@ -152,7 +153,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="buttonHandler"
+                    android:onClick="numberButtonHandler"
                     android:text="+ 1 minute" />
 
             </TableRow>
@@ -168,7 +169,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="buttonHandler"
+                    android:onClick="numberButtonHandler"
                     android:text="- 5 minutes" />
 
                 <Button
@@ -176,7 +177,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="buttonHandler"
+                    android:onClick="numberButtonHandler"
                     android:text="+ 5 minutes" />
 
             </TableRow>

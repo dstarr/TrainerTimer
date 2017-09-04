@@ -1,9 +1,8 @@
 package com.elegantcode.trainertimer;
 
-import android.app.Activity;
-import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
+
+import com.elegantcode.trainertimer.ViewModels.TimeViewModel;
 
 /**
  * Created by dxstarr on 9/2/17.
@@ -21,7 +20,7 @@ public class MainPresenter {
         tvMinutes = minutes;
         tvSeconds = seconds;
 
-        MainViewModel viewModel = model.getTimeRemaining();
+        TimeViewModel viewModel = model.getTimeRemaining();
 
         tvMinutes.setText(viewModel.getMinutes());
         tvSeconds.setText(viewModel.getSeconds());
@@ -57,7 +56,7 @@ public class MainPresenter {
 
         }
 
-        MainViewModel viewModel = model.getTimeRemaining();
+        TimeViewModel viewModel = model.getTimeRemaining();
 
         tvMinutes.setText(viewModel.getMinutes());
         tvSeconds.setText(viewModel.getSeconds());

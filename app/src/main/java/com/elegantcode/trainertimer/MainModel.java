@@ -1,5 +1,7 @@
 package com.elegantcode.trainertimer;
 
+import com.elegantcode.trainertimer.ViewModels.TimeViewModel;
+
 /**
  * Created by dxstarr on 9/3/17.
  */
@@ -18,8 +20,8 @@ public class MainModel {
         seconds += sec;
     }
 
-    public MainViewModel getTimeRemaining() {
-        return new MainViewModel(getMinutes(), getSeconds());
+    public TimeViewModel getTimeRemaining() {
+        return new TimeViewModel(getMinutes(), getSeconds());
     }
 
     private String getMinutes() {
