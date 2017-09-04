@@ -74,7 +74,7 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:layout_weight="0.08"
+                android:layout_weight="0.17"
                 android:text="00"
                 android:textAlignment="center"
                 android:textColor="@color/colorPrimary"
@@ -126,8 +126,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:freezesText="false"
                     android:onClick="buttonHandler"
-                    android:text="+ 10 seconds" />
+                    android:text="+ 10 seconds"
+                    android:textIsSelectable="false" />
 
             </TableRow>
 

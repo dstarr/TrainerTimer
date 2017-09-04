@@ -6,30 +6,43 @@ package com.elegantcode.trainertimer;
 
 public class MainModel {
 
-    private int minutes = 0;
     private int seconds = 0;
 
 
     public void addMinutes(int min) {
-        minutes += min;
+        seconds += min * 60;
     }
 
     public void addSeconds(int sec) {
+
         seconds += sec;
     }
 
-    public String getMinutes() {
-
-        if(minutes < 0) { minutes = 0; }
-
-        return formatNumber(minutes);
+    public MainViewModel getTimeRemaining() {
+        return new MainViewModel(getMinutes(), getSeconds());
     }
 
-    public String getSeconds() {
+    private String getMinutes() {
 
-        if(seconds < 0) { seconds = 0; }
+        if (seconds < 1) {
+            return formatNumber(0);
+        }
 
-        return formatNumber(seconds);
+        int minutes = seconds / 60;
+
+        return formatNumber(minutes);
+
+    }
+
+    private String getSeconds() {
+
+        if (seconds < 1) {
+            return formatNumber(0);
+        }
+
+        int secondsRemaining = seconds % 60;
+
+        return formatNumber(secondsRemaining);
     }
 
     private String formatNumber(int number) {

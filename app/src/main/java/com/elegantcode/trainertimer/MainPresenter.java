@@ -21,14 +21,13 @@ public class MainPresenter {
         tvMinutes = minutes;
         tvSeconds = seconds;
 
-        tvMinutes.setText(model.getMinutes());
-        tvSeconds.setText(model.getSeconds());
+        MainViewModel viewModel = model.getTimeRemaining();
+
+        tvMinutes.setText(viewModel.getMinutes());
+        tvSeconds.setText(viewModel.getSeconds());
     }
 
     public void handleNumberClick(int btnClicked) {
-
-//        int currentSeconds = Integer.parseInt(tvSeconds.getText().toString());
-//        int currentMinutes = Integer.parseInt(tvMinutes.getText().toString());
 
         switch(btnClicked) {
 
@@ -58,7 +57,11 @@ public class MainPresenter {
 
         }
 
-        tvMinutes.setText(model.getMinutes());
-        tvSeconds.setText(model.getSeconds());
+        MainViewModel viewModel = model.getTimeRemaining();
+
+        tvMinutes.setText(viewModel.getMinutes());
+        tvSeconds.setText(viewModel.getSeconds());
+
+
     }
 }
