@@ -22,57 +22,51 @@ public class MainModel {
 
     public void addMinutes(int min) {
 
-        seconds += (min * 60);
-
-        if (seconds > 3600) {
-            seconds = 3600;
-            return;
-        }
-
-
-        if(seconds < 0) {
-            min = 0;
-            seconds = 0;
-        } else if ((seconds/60) < 0) {
-            min = 0;
-        }
-
-        String strMinutes = formatNumber(seconds / 60);
-        String strSeconds = formatNumber(seconds % 60);
-
-        timeViewModel.setMinutes(strMinutes);
-        timeViewModel.setSeconds(strSeconds);
+        addSeconds(min * 60);
     }
 
     public void addSeconds(int sec) {
 
         if (seconds + sec > 3600) {
             seconds = 3600;
-            return;
-        }
-
-        if((seconds + sec) < 0) {
+        } else if((seconds + sec) < 0) {
             seconds = 0;
-
-            String strSeconds = formatNumber(this.seconds);
-            timeViewModel.setSeconds(strSeconds);
-
-            return;
+        } else {
+            seconds += sec;
         }
 
-        seconds += sec;
-
-        timeViewModel.setSeconds(formatNumber(seconds % 60));
-        timeViewModel.setMinutes(formatNumber(seconds/60));
+        setTimeViewState();
+        setActionViewState();
     }
 
     public TimeViewModel getTimeRemaining() {
         return timeViewModel;
     }
 
+    public ActionButtonViewModel getActionButtonState() {
+        return actionButtonViewModel;
+    }
+
     public TimeViewModel resetTime() {
         seconds = 0;
-        return new TimeViewModel();
+        timeViewModel = new TimeViewModel();
+        return timeViewModel;
+    }
+
+    private void setActionViewState() {
+        if(seconds > 0) {
+            actionButtonViewModel.setStartEnabled(true);
+            actionButtonViewModel.setResetEnabled(true);
+            return;
+        }
+
+        actionButtonViewModel.setStartEnabled(false);
+        actionButtonViewModel.setResetEnabled(false);
+    }
+
+    private void setTimeViewState() {
+        timeViewModel.setSeconds(formatNumber(seconds % 60));
+        timeViewModel.setMinutes(formatNumber(seconds/60));
     }
 
     private String formatNumber(int number) {
