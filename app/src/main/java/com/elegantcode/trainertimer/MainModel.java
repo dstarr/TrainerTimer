@@ -22,29 +22,26 @@ public class MainModel {
 
     public void addMinutes(int min) {
 
-        addSeconds( min * 60);
+        seconds += (min * 60);
 
-// keeping this for now in case I find a bug in the seconds alogorithm.
-//        seconds += (min * 60);
-//
-//        if (seconds > 3600) {
-//            seconds = 3600;
-//            return;
-//        }
-//
-//
-//        if(seconds < 0) {
-//            min = 0;
-//            seconds = 0;
-//        } else if ((seconds/60) < 0) {
-//            min = 0;
-//        }
-//
-//        String strMinutes = formatNumber(seconds / 60);
-//        String strSeconds = formatNumber(seconds % 60);
-//
-//        timeViewModel.setMinutes(strMinutes);
-//        timeViewModel.setSeconds(strSeconds);
+        if (seconds > 3600) {
+            seconds = 3600;
+            return;
+        }
+
+
+        if(seconds < 0) {
+            min = 0;
+            seconds = 0;
+        } else if ((seconds/60) < 0) {
+            min = 0;
+        }
+
+        String strMinutes = formatNumber(seconds / 60);
+        String strSeconds = formatNumber(seconds % 60);
+
+        timeViewModel.setMinutes(strMinutes);
+        timeViewModel.setSeconds(strSeconds);
     }
 
     public void addSeconds(int sec) {
