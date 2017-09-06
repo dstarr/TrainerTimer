@@ -11,8 +11,8 @@ public class MainModel {
 
     private int seconds;
 
-    TimeViewModel timeViewModel;
-    ActionButtonViewModel actionButtonViewModel;
+    private TimeViewModel timeViewModel;
+    private ActionButtonViewModel actionButtonViewModel;
 
     public MainModel() {
         seconds = 0;
@@ -54,6 +54,7 @@ public class MainModel {
     }
 
     private void setActionViewState() {
+
         if(seconds > 0) {
             actionButtonViewModel.setStartEnabled(true);
             actionButtonViewModel.setResetEnabled(true);

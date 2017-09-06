@@ -3,6 +3,7 @@ package com.elegantcode.trainertimer;
 import android.app.Activity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.elegantcode.trainertimer.ViewModels.ActionButtonViewModel;
@@ -50,6 +51,14 @@ public class MainPresenter {
             case R.id.button_minus5m:
                 model.addMinutes(-5);
                 break;
+
+            case R.id.button_add10m:
+                model.addMinutes(10);
+                break;
+
+            case R.id.button_minus10m:
+                model.addMinutes(-10);
+                break;
         }
 
         updateTimeRemaining();
@@ -58,8 +67,8 @@ public class MainPresenter {
 
     public void resetTime() {
 
-        TextView seconds = (TextView) activity.findViewById(R.id.text_seconds);
-        TextView minutes = (TextView) activity.findViewById(R.id.text_minutes);
+        TextView seconds = activity.findViewById(R.id.text_seconds);
+        TextView minutes = activity.findViewById(R.id.text_minutes);
 
         model.resetTime();
         updateTimeRemaining();
@@ -68,8 +77,8 @@ public class MainPresenter {
 
     private void updateTimeRemaining() {
 
-        TextView seconds = (TextView) activity.findViewById(R.id.text_seconds);
-        TextView minutes = (TextView) activity.findViewById(R.id.text_minutes);
+        TextView seconds = activity.findViewById(R.id.text_seconds);
+        TextView minutes = activity.findViewById(R.id.text_minutes);
 
         TimeViewModel timeViewModel = model.getTimeRemaining();
 
@@ -82,12 +91,10 @@ public class MainPresenter {
 
         ActionButtonViewModel actionButtonViewModel = model.getActionButtonState();
 
-        Button startButton = (Button) activity.findViewById(R.id.button_start);
-        Button resetButton = (Button) activity.findViewById(R.id.button_reset_0);
+        Button startButton = activity.findViewById(R.id.button_start);
+        Button resetButton = activity.findViewById(R.id.button_reset_0);
 
         startButton.setEnabled(actionButtonViewModel.isStartEnabled());
-        startButton.setText(actionButtonViewModel.getStartButtonText());
-
         resetButton.setEnabled(actionButtonViewModel.isResetEnabled());
 
     }
