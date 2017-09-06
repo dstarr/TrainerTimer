@@ -91,7 +91,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="left|center_vertical"
+                    android:gravity="start|center_vertical"
                     android:onClick="numberButtonClickHandler"
                     android:text="- 10 Seconds"
                     android:textIsSelectable="false" />
@@ -103,7 +103,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:freezesText="false"
-                    android:gravity="right|center_vertical"
+                    android:gravity="end|center_vertical"
                     android:onClick="numberButtonClickHandler"
                     android:text="+ 10 seconds"
                     android:textIsSelectable="false" />
@@ -123,7 +123,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="left|center_vertical"
+                    android:gravity="start|center_vertical"
                     android:onClick="numberButtonClickHandler"
                     android:text="- 1 minute" />
 
@@ -134,7 +134,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="right|center_vertical"
+                    android:gravity="end|center_vertical"
                     android:onClick="numberButtonClickHandler"
                     android:text="+ 1 minute" />
 
@@ -151,7 +151,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="left|center_vertical"
+                    android:gravity="start|center_vertical"
                     android:onClick="numberButtonClickHandler"
                     android:text="- 5 minutes" />
 
@@ -161,7 +161,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="right|center_vertical"
+                    android:gravity="end|center_vertical"
                     android:onClick="numberButtonClickHandler"
                     android:text="+ 5 minutes" />
 
@@ -177,7 +177,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="left|center_vertical"
+                    android:gravity="start|center_vertical"
                     android:onClick="numberButtonClickHandler"
                     android:text="- 10 minutes" />
 
@@ -187,7 +187,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="right|center_vertical"
+                    android:gravity="end|center_vertical"
                     android:onClick="numberButtonClickHandler"
                     android:text="+ 10 minutes" />
 
@@ -211,7 +211,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
-                        android:gravity="left|center_vertical"
+                        android:gravity="start|center_vertical"
                         android:onClick="resetButtonClickHandler"
                         android:text="Reset"
                         android:textSize="24sp" />
@@ -222,7 +222,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="3"
-                        android:gravity="right|center_vertical"
+                        android:gravity="end|center_vertical"
                         android:text="Start"
                         android:textSize="24sp" />
 

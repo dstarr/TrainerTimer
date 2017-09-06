@@ -67,9 +67,6 @@ public class MainPresenter {
 
     public void resetTime() {
 
-        TextView seconds = activity.findViewById(R.id.text_seconds);
-        TextView minutes = activity.findViewById(R.id.text_minutes);
-
         model.resetTime();
         updateTimeRemaining();
         updateActionButtonState();
