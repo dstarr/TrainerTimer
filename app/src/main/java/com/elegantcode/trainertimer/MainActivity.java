@@ -8,8 +8,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import com.elegantcode.trainertimer.ViewModels.ActionButtonViewModel;
-
 
 public class MainActivity extends AppCompatActivity {
 
