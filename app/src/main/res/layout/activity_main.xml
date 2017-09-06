@@ -24,7 +24,6 @@
             android:gravity="top|center_horizontal|center"
             android:orientation="horizontal"
             android:weightSum="1"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -95,14 +94,10 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/layout_timer"
-            app:layout_constraintVertical_bias="0.51">
+            app:layout_constraintRight_toRightOf="parent">
 
             <TableRow
                 android:id="@+id/table_row_30s"
@@ -118,8 +113,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:freezesText="false"
-                    android:onClick="numberButtonHandler"
+                    android:onClick="numberButtonClickHandler"
                     android:text="- 10 Seconds"
+                    android:textAlignment="center"
                     android:textIsSelectable="false" />
 
                 <Button
@@ -129,25 +125,28 @@
                     android:layout_weight="1"
                     android:freezesText="false"
                     android:gravity="center"
-                    android:onClick="numberButtonHandler"
+                    android:onClick="numberButtonClickHandler"
                     android:text="+ 10 seconds"
+                    android:textAlignment="center"
                     android:textIsSelectable="false" />
 
             </TableRow>
 
             <TableRow
                 android:id="@+id/table_row_1m"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:layout_width="0dp"
+                android:orientation="horizontal"
+                tools:layout_editor_absoluteX="8dp"
+                tools:layout_editor_absoluteY="8dp">
 
                 <Button
                     android:id="@+id/button_minus1m"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="numberButtonHandler"
-                    android:text="- 1 minute" />
+                    android:onClick="numberButtonClickHandler"
+                    android:text="- 1 minute"
+                    android:textAlignment="center" />
 
                 <Button
                     android:id="@+id/button_add1m"
@@ -155,23 +154,26 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:onClick="numberButtonHandler"
-                    android:text="+ 1 minute" />
+                    android:onClick="numberButtonClickHandler"
+                    android:text="+ 1 minute"
+                    android:textAlignment="center" />
 
             </TableRow>
 
             <TableRow
                 android:id="@+id/table_row_5m"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:layout_width="0dp"
+                android:orientation="horizontal"
+
+                >
 
                 <Button
                     android:id="@+id/button_minus5m"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="numberButtonHandler"
+                    android:gravity="center"
+                    android:onClick="numberButtonClickHandler"
                     android:text="- 5 minutes" />
 
                 <Button
@@ -180,16 +182,17 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:onClick="numberButtonHandler"
+                    android:onClick="numberButtonClickHandler"
                     android:text="+ 5 minutes" />
 
             </TableRow>
 
             <TableRow
                 android:id="@+id/table_row_start"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_width="0dp"
+                android:orientation="vertical"
+                tools:layout_editor_absoluteX="8dp"
+                tools:layout_editor_absoluteY="8dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -199,24 +202,25 @@
                     <Button
                         android:id="@+id/button_reset_0"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight=".5"
-                        android:gravity="fill"
-                        android:onClick="resestButtonClicked"
+                        android:layout_height="match_parent"
+                        android:layout_weight="5"
+                        android:gravity="center"
+                        android:onClick="resetButtonClickHandler"
                         android:text="Reset"
                         android:textAlignment="center" />
+
 
                 </LinearLayout>
 
                 <Button
                     android:id="@+id/button_start"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:layout_weight=".5"
-                    android:gravity="fill"
+                    android:layout_height="100dp"
+                    android:layout_weight="5"
+                    android:gravity="center"
                     android:text="Start"
-                    android:textAlignment="center"
                     android:textSize="36sp" />
+
 
             </TableRow>
 

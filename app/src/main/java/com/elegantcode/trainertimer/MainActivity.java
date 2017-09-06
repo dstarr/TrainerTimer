@@ -28,12 +28,12 @@ public class MainActivity extends AppCompatActivity {
         presenter.resetTime();
     }
 
-    public void numberButtonHandler(View view) {
+    public void numberButtonClickHandler(View view) {
 
         presenter.numberClicked(view);
     }
 
-    public void resestButtonClicked(View view) {
+    public void resetButtonClickHandler(View view) {
         presenter = new MainPresenter(this);
         presenter.resetTime();
     }
