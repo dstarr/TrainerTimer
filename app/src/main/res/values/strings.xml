@@ -3,4 +3,17 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="button_reset">Reset</string>
+    <string name="button_start">Start</string>
+    <string name="button_plus_10s">+ 10 seconds</string>
+    <string name="button_plus_1m">+ 1 minute</string>
+    <string name="button_plus_5m">+ 5 minutes</string>
+    <string name="button_plus_10m">+ 10 minutes</string>
+    <string name="button_minus_10s">- 10 seconds</string>
+    <string name="button_minus_5m">- 5 minutes</string>
+    <string name="button_minus_10m">- 10 minutes</string>
+    <string name="text_colon">:</string>
+    <string name="text_00">00</string>
+
+
 </resources>

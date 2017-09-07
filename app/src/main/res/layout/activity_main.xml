@@ -33,7 +33,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="fill"
-                android:text="00"
+                android:text="@string/text_00"
                 android:textAlignment="center"
                 android:textColor="@color/colorPrimary"
                 android:textSize="120sp"
@@ -44,7 +44,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="fill"
-                android:text=":"
+                android:text="@string/text_colon"
                 android:textAlignment="center"
                 android:textColor="@color/colorPrimary"
                 android:textSize="120sp"
@@ -55,7 +55,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="fill"
-                android:text="00"
+                android:text="@string/text_00"
                 android:textAlignment="center"
                 android:textColor="@color/colorPrimary"
                 android:textSize="120sp"
@@ -93,8 +93,9 @@
                     android:layout_weight="1"
                     android:gravity="start|center_vertical"
                     android:onClick="numberButtonClickHandler"
-                    android:text="- 10 Seconds"
-                    android:textIsSelectable="false" />
+                    android:text="@string/button_minus_10s"
+                    android:textIsSelectable="false"
+                    android:textSize="18sp" />
 
                 <Button
                     android:id="@+id/button_add10s"
@@ -105,8 +106,9 @@
                     android:freezesText="false"
                     android:gravity="end|center_vertical"
                     android:onClick="numberButtonClickHandler"
-                    android:text="+ 10 seconds"
-                    android:textIsSelectable="false" />
+                    android:text="@string/button_plus_10s"
+                    android:textIsSelectable="false"
+                    android:textSize="18sp" />
 
             </TableRow>
 
@@ -125,7 +127,8 @@
                     android:layout_weight="1"
                     android:gravity="start|center_vertical"
                     android:onClick="numberButtonClickHandler"
-                    android:text="- 1 minute" />
+                    android:text="@string/button_minus_5m"
+                    android:textSize="18sp" />
 
 
                 <Button
@@ -136,7 +139,8 @@
                     android:layout_weight="1"
                     android:gravity="end|center_vertical"
                     android:onClick="numberButtonClickHandler"
-                    android:text="+ 1 minute" />
+                    android:text="@string/button_plus_1m"
+                    android:textSize="18sp" />
 
             </TableRow>
 
@@ -153,7 +157,8 @@
                     android:layout_weight="1"
                     android:gravity="start|center_vertical"
                     android:onClick="numberButtonClickHandler"
-                    android:text="- 5 minutes" />
+                    android:text="@string/button_minus_5m"
+                    android:textSize="18sp" />
 
                 <Button
                     android:id="@+id/button_add5m"
@@ -163,7 +168,8 @@
                     android:layout_weight="1"
                     android:gravity="end|center_vertical"
                     android:onClick="numberButtonClickHandler"
-                    android:text="+ 5 minutes" />
+                    android:text="@string/button_plus_5m"
+                    android:textSize="18sp" />
 
             </TableRow>
 
@@ -179,7 +185,8 @@
                     android:layout_weight="1"
                     android:gravity="start|center_vertical"
                     android:onClick="numberButtonClickHandler"
-                    android:text="- 10 minutes" />
+                    android:text="@string/button_minus_10m"
+                    android:textSize="18sp" />
 
                 <Button
                     android:id="@+id/button_add10m"
@@ -189,7 +196,9 @@
                     android:layout_weight="1"
                     android:gravity="end|center_vertical"
                     android:onClick="numberButtonClickHandler"
-                    android:text="+ 10 minutes" />
+                    android:text="@string/button_plus_10m"
+                    android:textSize="18sp"
+                    />
 
             </TableRow>
 
@@ -213,8 +222,9 @@
                         android:layout_weight="2"
                         android:gravity="start|center_vertical"
                         android:onClick="resetButtonClickHandler"
-                        android:text="Reset"
-                        android:textSize="24sp" />
+                        android:text="@string/button_reset"
+                        android:textSize="24sp"
+                        />
 
                     <Button
                         android:id="@+id/button_start"
@@ -223,8 +233,9 @@
                         android:layout_height="match_parent"
                         android:layout_weight="3"
                         android:gravity="end|center_vertical"
-                        android:text="Start"
-                        android:textSize="24sp" />
+                        android:text="@string/button_start"
+                        android:textSize="24sp"
+                         />
 
                 </LinearLayout>
 
