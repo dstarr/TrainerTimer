@@ -235,6 +235,7 @@
                         android:gravity="end|center_vertical"
                         android:text="@string/button_start"
                         android:textSize="24sp"
+                        android:onClick="startButtonClickHandler"
                          />
 
                 </LinearLayout>

@@ -1,6 +1,7 @@
 package com.elegantcode.trainertimer;
 
 import android.app.Activity;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -12,15 +13,17 @@ import com.elegantcode.trainertimer.viewmodels.TimeViewModel;
  * Created by dxstarr on 9/2/17.
  */
 
-public class MainPresenter {
+public class MainPresenter implements IObserver {
 
-    private MainModel model = new MainModel();
+    private MainModel model = new MainModel(this);
     private Activity activity;
+    private CountDownTimer countDownTimer;
 
     public MainPresenter(Activity act) {
 
         activity = act;
         resetTime();
+
     }
 
     public void numberClicked(View view) {
@@ -71,6 +74,11 @@ public class MainPresenter {
         updateActionButtonState();
     }
 
+    public void startTimer() {
+        model.start();
+    }
+
+
     private void updateTimeRemaining() {
 
         TextView seconds = activity.findViewById(R.id.text_seconds);
@@ -93,5 +101,11 @@ public class MainPresenter {
         startButton.setEnabled(actionButtonViewModel.isStartEnabled());
         resetButton.setEnabled(actionButtonViewModel.isResetEnabled());
 
+    }
+
+    @Override
+    public void update() {
+        updateTimeRemaining();
+        updateActionButtonState();
     }
 }

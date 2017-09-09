@@ -1,5 +1,7 @@
 package com.elegantcode.trainertimer;
 
+import android.os.CountDownTimer;
+
 import com.elegantcode.trainertimer.viewmodels.ActionButtonViewModel;
 import com.elegantcode.trainertimer.viewmodels.TimeViewModel;
 
@@ -13,8 +15,12 @@ public class MainModel {
 
     private TimeViewModel timeViewModel;
     private ActionButtonViewModel actionButtonViewModel;
+    private int millis = 1000;
+    private IObserver observer;
+    private CountDownTimer countDownTimer;
 
-    public MainModel() {
+    public MainModel(IObserver observer) {
+        this.observer = observer;
         seconds = 0;
         timeViewModel = new TimeViewModel();
         actionButtonViewModel = new ActionButtonViewModel();
@@ -53,6 +59,35 @@ public class MainModel {
         return timeViewModel;
     }
 
+    public void start() {
+        initCountDownTimer();
+        countDownTimer.start();
+    }
+
+    private void initCountDownTimer() {
+
+        countDownTimer = new CountDownTimer(seconds * millis, millis) {
+            @Override
+            public void onTick(long l) {
+                seconds--;
+                timeViewModel.setSeconds(String.valueOf(seconds));
+                setTimeViewState();
+                setActionViewState();
+                observer.update();
+            }
+
+            @Override
+            public void onFinish() {
+                seconds = 0;
+                timeViewModel.setSeconds(String.valueOf(seconds));
+                setTimeViewState();
+                setActionViewState();
+
+                observer.update();
+            }
+        };
+    }
+
     private void setActionViewState() {
 
         if(seconds > 0) {
@@ -80,5 +115,4 @@ public class MainModel {
 
         return sNumber;
     }
-
 }
