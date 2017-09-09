@@ -15,9 +15,13 @@ public class MainModel {
 
     private TimeViewModel timeViewModel;
     private ActionButtonViewModel actionButtonViewModel;
+
     private int millis = 1000;
+    private boolean isTicking = false;
+
     private IObserver observer;
     private CountDownTimer countDownTimer;
+
 
     public MainModel(IObserver observer) {
         this.observer = observer;
@@ -41,8 +45,7 @@ public class MainModel {
             seconds += sec;
         }
 
-        setTimeViewState();
-        setActionViewState();
+        updateViewState();
     }
 
     public TimeViewModel getTimeRemaining() {
@@ -50,18 +53,22 @@ public class MainModel {
     }
 
     public ActionButtonViewModel getActionButtonState() {
+
         return actionButtonViewModel;
     }
 
     public TimeViewModel resetTime() {
         seconds = 0;
         timeViewModel = new TimeViewModel();
+        updateViewState();
         return timeViewModel;
     }
 
     public void start() {
         initCountDownTimer();
+        isTicking = true;
         countDownTimer.start();
+        updateViewState();
     }
 
     private void initCountDownTimer() {
@@ -70,37 +77,31 @@ public class MainModel {
             @Override
             public void onTick(long l) {
                 seconds--;
-                timeViewModel.setSeconds(String.valueOf(seconds));
-                setTimeViewState();
-                setActionViewState();
+                updateViewState();
                 observer.update();
             }
 
             @Override
             public void onFinish() {
+                isTicking = false;
                 seconds = 0;
-                timeViewModel.setSeconds(String.valueOf(seconds));
-                setTimeViewState();
-                setActionViewState();
-
+                updateViewState();
                 observer.update();
+
             }
         };
     }
 
-    private void setActionViewState() {
+    private void updateViewState() {
 
         if(seconds > 0) {
+            actionButtonViewModel.setStartEnabled(!isTicking);
+            actionButtonViewModel.setResetEnabled(!isTicking);
+        } else {
             actionButtonViewModel.setStartEnabled(true);
             actionButtonViewModel.setResetEnabled(true);
-            return;
         }
 
-        actionButtonViewModel.setStartEnabled(false);
-        actionButtonViewModel.setResetEnabled(false);
-    }
-
-    private void setTimeViewState() {
         timeViewModel.setSeconds(formatNumber(seconds % 60));
         timeViewModel.setMinutes(formatNumber(seconds/60));
     }
