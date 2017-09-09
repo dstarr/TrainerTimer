@@ -5,8 +5,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.elegantcode.trainertimer.ViewModels.ActionButtonViewModel;
-import com.elegantcode.trainertimer.ViewModels.TimeViewModel;
+import com.elegantcode.trainertimer.viewmodels.ActionButtonViewModel;
+import com.elegantcode.trainertimer.viewmodels.TimeViewModel;
 
 /**
  * Created by dxstarr on 9/2/17.

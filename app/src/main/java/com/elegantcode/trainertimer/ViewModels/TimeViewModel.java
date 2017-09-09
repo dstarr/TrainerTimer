@@ -1,4 +1,4 @@
-package com.elegantcode.trainertimer.ViewModels;
+package com.elegantcode.trainertimer.viewmodels;
 
 /**
  * Created by dxstarr on 9/3/17.

@@ -1,7 +1,7 @@
 package com.elegantcode.trainertimer;
 
-import com.elegantcode.trainertimer.ViewModels.ActionButtonViewModel;
-import com.elegantcode.trainertimer.ViewModels.TimeViewModel;
+import com.elegantcode.trainertimer.viewmodels.ActionButtonViewModel;
+import com.elegantcode.trainertimer.viewmodels.TimeViewModel;
 
 /**
  * Created by dxstarr on 9/3/17.

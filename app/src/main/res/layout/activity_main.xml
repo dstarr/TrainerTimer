@@ -127,7 +127,7 @@
                     android:layout_weight="1"
                     android:gravity="start|center_vertical"
                     android:onClick="numberButtonClickHandler"
-                    android:text="@string/button_minus_5m"
+                    android:text="@string/button_minus_1m"
                     android:textSize="18sp" />
 
 
