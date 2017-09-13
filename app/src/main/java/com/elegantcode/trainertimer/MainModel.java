@@ -46,6 +46,7 @@ public class MainModel {
         }
 
         updateViewState();
+        observer.update();
     }
 
     public TimeViewModel getTimeRemaining() {
@@ -57,11 +58,13 @@ public class MainModel {
         return actionButtonViewModel;
     }
 
-    public TimeViewModel resetTime() {
+    public void resetTime() {
         seconds = 0;
+        isTicking = false;
         timeViewModel = new TimeViewModel();
         updateViewState();
-        return timeViewModel;
+
+        observer.update();
     }
 
     public void start() {
@@ -69,6 +72,8 @@ public class MainModel {
         isTicking = true;
         countDownTimer.start();
         updateViewState();
+
+        observer.update();
     }
 
     private void initCountDownTimer() {
@@ -98,8 +103,8 @@ public class MainModel {
             actionButtonViewModel.setStartEnabled(!isTicking);
             actionButtonViewModel.setResetEnabled(!isTicking);
         } else {
-            actionButtonViewModel.setStartEnabled(true);
-            actionButtonViewModel.setResetEnabled(true);
+            actionButtonViewModel.setStartEnabled(false);
+            actionButtonViewModel.setResetEnabled(false);
         }
 
         timeViewModel.setSeconds(formatNumber(seconds % 60));

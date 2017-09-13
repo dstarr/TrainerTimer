@@ -22,8 +22,14 @@ public class MainPresenter implements IObserver {
     public MainPresenter(Activity act) {
 
         activity = act;
-        resetTime();
+        resetTimer();
 
+    }
+
+    @Override
+    public void update() {
+        updateTimeRemaining();
+        updateActionButtonState();
     }
 
     public void numberClicked(View view) {
@@ -62,22 +68,17 @@ public class MainPresenter implements IObserver {
                 model.addMinutes(-10);
                 break;
         }
-
-        updateTimeRemaining();
-        updateActionButtonState();
     }
 
-    public void resetTime() {
+    public void resetTimer() {
 
         model.resetTime();
-        updateTimeRemaining();
-        updateActionButtonState();
     }
+
 
     public void startTimer() {
         model.start();
     }
-
 
     private void updateTimeRemaining() {
 
@@ -101,11 +102,5 @@ public class MainPresenter implements IObserver {
         startButton.setEnabled(actionButtonViewModel.isStartEnabled());
         resetButton.setEnabled(actionButtonViewModel.isResetEnabled());
 
-    }
-
-    @Override
-    public void update() {
-        updateTimeRemaining();
-        updateActionButtonState();
     }
 }
