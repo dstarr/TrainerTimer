@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         presenter = new MainPresenter(this);
-        presenter.resetTimer();
     }
 
     public void numberButtonClickHandler(View view) {
@@ -29,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void resetButtonClickHandler(View view) {
-        presenter = new MainPresenter(this);
         presenter.resetTimer();
     }
 

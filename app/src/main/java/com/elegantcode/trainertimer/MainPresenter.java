@@ -15,12 +15,13 @@ import com.elegantcode.trainertimer.viewmodels.TimeViewModel;
 
 public class MainPresenter implements IObserver {
 
-    private MainModel model = new MainModel(this);
+    private MainModel model;
     private Activity activity;
     private CountDownTimer countDownTimer;
 
     public MainPresenter(Activity act) {
 
+        model = new MainModel(this);
         activity = act;
         resetTimer();
 
@@ -72,7 +73,7 @@ public class MainPresenter implements IObserver {
 
     public void resetTimer() {
 
-        model.resetTime();
+        model.reset();
     }
 
 

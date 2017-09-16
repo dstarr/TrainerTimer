@@ -39,7 +39,7 @@ public class MainModel {
 
         if (seconds + sec > 3600) {
             seconds = 3600;
-        } else if((seconds + sec) < 0) {
+        } else if ((seconds + sec) < 0) {
             seconds = 0;
         } else {
             seconds += sec;
@@ -58,9 +58,9 @@ public class MainModel {
         return actionButtonViewModel;
     }
 
-    public void resetTime() {
-        seconds = 0;
+    public void reset() {
         isTicking = false;
+        seconds = 0;
         timeViewModel = new TimeViewModel();
         updateViewState();
 
@@ -99,23 +99,28 @@ public class MainModel {
 
     private void updateViewState() {
 
-        if(seconds > 0) {
+        if (seconds > 0) {
+            timeViewModel.setSeconds(formatNumber(seconds % 60));
+            timeViewModel.setMinutes(formatNumber(seconds / 60));
+
             actionButtonViewModel.setStartEnabled(!isTicking);
             actionButtonViewModel.setResetEnabled(!isTicking);
-        } else {
-            actionButtonViewModel.setStartEnabled(false);
-            actionButtonViewModel.setResetEnabled(false);
+
+            return;
         }
 
-        timeViewModel.setSeconds(formatNumber(seconds % 60));
-        timeViewModel.setMinutes(formatNumber(seconds/60));
+        timeViewModel.setSeconds(formatNumber(0));
+        timeViewModel.setMinutes(formatNumber(0));
+
+        actionButtonViewModel.setStartEnabled(false);
+        actionButtonViewModel.setResetEnabled(false);
     }
 
     private String formatNumber(int number) {
 
         String sNumber = String.valueOf(number);
 
-        if(number < 10) {
+        if (number < 10) {
             sNumber = "0" + sNumber;
         }
 
