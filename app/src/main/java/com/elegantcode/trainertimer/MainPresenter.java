@@ -78,6 +78,7 @@ public class MainPresenter implements IObserver {
 
 
     public void startTimer() {
+
         model.start();
     }
 
@@ -100,7 +101,9 @@ public class MainPresenter implements IObserver {
         Button startButton = activity.findViewById(R.id.button_start);
         Button resetButton = activity.findViewById(R.id.button_reset_0);
 
+        startButton.setText(actionButtonViewModel.getStartButtonText());
         startButton.setEnabled(actionButtonViewModel.isStartEnabled());
+
         resetButton.setEnabled(actionButtonViewModel.isResetEnabled());
 
     }

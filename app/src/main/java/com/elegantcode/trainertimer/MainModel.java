@@ -24,6 +24,7 @@ public class MainModel {
 
 
     public MainModel(IObserver observer) {
+
         this.observer = observer;
         seconds = 0;
         timeViewModel = new TimeViewModel();
@@ -49,6 +50,31 @@ public class MainModel {
         observer.update();
     }
 
+    public void reset() {
+
+        isTicking = false;
+        seconds = 0;
+        timeViewModel = new TimeViewModel();
+
+        updateViewState();
+        observer.update();
+    }
+
+    public void start() {
+
+        if(!isTicking) {
+            isTicking = true;
+            initCountDownTimer();
+            countDownTimer.start();
+        } else {
+            isTicking = false;
+            countDownTimer.cancel();
+        }
+
+        updateViewState();
+        observer.update();
+    }
+
     public TimeViewModel getTimeRemaining() {
         return timeViewModel;
     }
@@ -58,30 +84,14 @@ public class MainModel {
         return actionButtonViewModel;
     }
 
-    public void reset() {
-        isTicking = false;
-        seconds = 0;
-        timeViewModel = new TimeViewModel();
-        updateViewState();
-
-        observer.update();
-    }
-
-    public void start() {
-        initCountDownTimer();
-        isTicking = true;
-        countDownTimer.start();
-        updateViewState();
-
-        observer.update();
-    }
-
     private void initCountDownTimer() {
 
         countDownTimer = new CountDownTimer(seconds * millis, millis) {
+
             @Override
             public void onTick(long l) {
                 seconds--;
+                isTicking = true;
                 updateViewState();
                 observer.update();
             }
@@ -100,20 +110,33 @@ public class MainModel {
     private void updateViewState() {
 
         if (seconds > 0) {
+
             timeViewModel.setSeconds(formatNumber(seconds % 60));
             timeViewModel.setMinutes(formatNumber(seconds / 60));
 
-            actionButtonViewModel.setStartEnabled(!isTicking);
+            actionButtonViewModel.setStartEnabled(true);
             actionButtonViewModel.setResetEnabled(!isTicking);
 
+            if(isTicking) {
+                actionButtonViewModel.setStartButtonText("Pause");
+            } else {
+                actionButtonViewModel.setStartButtonText("Start");
+            }
             return;
         }
+
+
 
         timeViewModel.setSeconds(formatNumber(0));
         timeViewModel.setMinutes(formatNumber(0));
 
         actionButtonViewModel.setStartEnabled(false);
         actionButtonViewModel.setResetEnabled(false);
+        actionButtonViewModel.setStartButtonText("Start");
+
+
+
+
     }
 
     private String formatNumber(int number) {

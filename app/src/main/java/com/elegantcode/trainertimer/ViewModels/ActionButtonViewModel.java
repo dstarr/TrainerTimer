@@ -8,17 +8,12 @@ public class ActionButtonViewModel {
 
     private boolean startEnabled = false;
     private boolean resetEnabled = false;
-    private boolean isTicking = false;
-
-    public String getStartButtonText() {
-
-        if(isTicking)
-            return "Pause";
-
-        return "Start";
-    }
+    private String startButtonText;
 
     public boolean isStartEnabled() {
+
+        setStartButtonText("Start");
+
         return startEnabled;
     }
 
@@ -38,11 +33,11 @@ public class ActionButtonViewModel {
         this.resetEnabled = resetEnabled;
     }
 
-    public boolean isTicking() {
-        return isTicking;
+    public String getStartButtonText() {
+        return startButtonText;
     }
 
-    public void setTicking(boolean ticking) {
-        isTicking = ticking;
+    public void setStartButtonText(String startButtonText) {
+        this.startButtonText = startButtonText;
     }
 }
