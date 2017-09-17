@@ -62,7 +62,7 @@ public class MainModel {
 
     public void start() {
 
-        if(!isTicking) {
+        if (!isTicking) {
             isTicking = true;
             initCountDownTimer();
             countDownTimer.start();
@@ -117,7 +117,7 @@ public class MainModel {
             actionButtonViewModel.setStartEnabled(true);
             actionButtonViewModel.setResetEnabled(!isTicking);
 
-            if(isTicking) {
+            if (isTicking) {
                 actionButtonViewModel.setStartButtonText("Pause");
             } else {
                 actionButtonViewModel.setStartButtonText("Start");
@@ -125,16 +125,12 @@ public class MainModel {
             return;
         }
 
-
-
         timeViewModel.setSeconds(formatNumber(0));
         timeViewModel.setMinutes(formatNumber(0));
 
         actionButtonViewModel.setStartEnabled(false);
         actionButtonViewModel.setResetEnabled(false);
         actionButtonViewModel.setStartButtonText("Start");
-
-
 
 
     }
