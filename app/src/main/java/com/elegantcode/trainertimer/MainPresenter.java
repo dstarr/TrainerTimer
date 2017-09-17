@@ -1,7 +1,6 @@
 package com.elegantcode.trainertimer;
 
 import android.app.Activity;
-import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -17,11 +16,10 @@ public class MainPresenter implements IObserver {
 
     private MainModel model;
     private Activity activity;
-    private CountDownTimer countDownTimer;
 
     public MainPresenter(Activity act) {
 
-        model = new MainModel(this);
+        this.model = new MainModel(this);
         activity = act;
         resetTimer();
 
