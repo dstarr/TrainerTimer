@@ -1,2 +1,2 @@
-# TrainerTimer
-## A timer for classroom trainers
+# Trainer Timer
+A simple timer for classroom trainers
